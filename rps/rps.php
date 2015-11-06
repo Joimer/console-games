@@ -23,7 +23,7 @@ function color ($color='none') {
 	return "\033[" . $c;
 }
 echo color('white') . "Rock, paper, scissors; best of five!\n" . color();
-echo color() . "Choose an action [rock, paper, scissors]\n" . color();
+echo "Choose an action [rock, paper, scissors]\n";
 $wins = 0;
 $losses = 0;
 $actions = ['rock', 'paper', 'scissors'];
