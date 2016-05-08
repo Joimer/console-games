@@ -8,11 +8,11 @@ fn main() {
 	// `answers` needs to be mutable, since the structure must be able to be changed with insert etc.
 	// We type hint to avoid repeating below u8 for each number. Looks prettier this way.
 	let mut answers: HashMap<String, u8> = HashMap::new();
-	// We put string literals with to_owned() so we can use collections::string::String instead of &str
+	// We put string literals with String::from so we can use collections::string::String instead of &str
 	// This will be helpful later when we have to use a dynamic key on the hash map gotten from the stdin.
-	answers.insert("rock".to_owned(), 0);
-	answers.insert("paper".to_owned(), 1);
-	answers.insert("scissors".to_owned(), 2);
+	answers.insert(String::from("rock"), 0);
+	answers.insert(String::from("paper"), 1);
+	answers.insert(String::from("scissors"), 2);
 	// We indicate the type so we don't make it think it's of _ type. Signed integer, 8 bits is more than enough.
 	let multi: [[i8;3];3] = [[0, -1, 1], [1, 0, -1], [-1, -1, 0]];
 	let cpu_names = ["rock", "paper", "scissors"];
@@ -28,7 +28,7 @@ fn main() {
 		let mut input = String::new();
 		io::stdin().read_line(&mut input)
 			.expect("Failed to read line.");
-		input = input.trim().to_owned();
+		input = String::from(input.trim());
 
 		// Check if the answer is correct. If it isn't, stop this iteration and go onto the next.
 		if !answers.contains_key(&input) {
