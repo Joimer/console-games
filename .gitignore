@@ -1,2 +1,4 @@
 rps/c#/bin/*
 rps/c#/obj/*
+rps/rust/target
+rps/rust/Cargo.lock
